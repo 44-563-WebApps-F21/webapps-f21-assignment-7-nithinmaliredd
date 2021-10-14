@@ -28,7 +28,7 @@
         }
 
         function startTime() {
-            var Count = Math.floor(Math.random() * 10 + 2)
+            var Count = Math.floor(Math.random() * (10-2) + 2)
             for (let i = 0; i < Count; i++) {
                 setTimeout(() => {
                     document.getElementById("countdown").innerHTML = "Count: " + i

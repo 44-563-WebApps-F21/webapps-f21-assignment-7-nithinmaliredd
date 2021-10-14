@@ -18,6 +18,7 @@
   <p style = color:red; padding:3px;>Click on the squares to search for wild life</p>
   <p id = "tries" style = color:blue; padding:3px; >Number of tries is zero</p>
   <p id ="distance" style = color:yellowgreen ; padding:3px;> Distance is unknown</p>
+   <div class="btn btn-info text-center mb-5" onclick="reset()">Reset</div>    </div>
 
   <div class="container">
     <div class="d-flex justify-content-center">
@@ -131,6 +132,18 @@
             var column = Math.abs(m - m1);
             return row + column - 1;
 
+        }
+        function reset() {            
+            triesCount = 0; 
+            maximum=23
+            minimum=0           
+            animalLocation = Math.round(Math.random() * (maximum-minimum) + minimum);            
+            document.getElementById("tries").innerHTML = "Number of tries is zero";            
+            AnimalDistance = "unknown"            
+            document.getElementById("distance").innerHTML = "Distance is " + AnimalDistance;            
+            for (var i = 0; i < 24; i++) {                
+            document.getElementById(ids[i]).src = "bush.jpg";           
+         }        
         }
 
     </script>
