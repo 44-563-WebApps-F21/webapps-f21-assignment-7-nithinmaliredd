@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stack Page</title>
+
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <h1>Nithin Sai Reddy Malireddy builds a stack</h1>
+    <input type="text" id="Ni">
+    <div class="flex-container" id="target">
+        <div class="stack">row item 1</div>
+        <div class="stack">row item 2</div>
+        <div class="stack">row item 3</div>
+    </div>
+
+    <p> Press the button to create an new element of type div and then add it to the container.</p>
+    <button onclick="makeNewDiv()">Push value</button>
+    <button onclick="popItem()">Pop</button>
+    <button onclick="zap()">Zapvalues</button>
+
+
+</body>
+<script>
+    function makeNewDiv() {
+        /* make the div and its text */
+        let element = document.createElement("div")
+        element.innerHTML = document.getElementById('Ni').value;
+        element.className = "stack";
+        /* add it to the container */
+        document.getElementById('target').appendChild(element)
+    }
+    function popItem() {
+        stack_item = document.getElementsByClassName("stack")
+        len = stack_item.length
+        if (stack_item != undefined && len > 0) {
+            stack_item[len - 1].remove()
+        }
+    }
+    function zap() {
+        stack_item = document.getElementsByClassName("stack")
+        element = document.getElementById('Ni').value
+        if (stack_item != undefined && stack_item.length > 0) {
+            for (let i = 0; i < stack_item.length; i++) {
+                ele = stack_item[i].innerHTML;
+                if (ele == element) {
+                    console.log(ele)
+                    stack_item[i].remove()
+                    i--
+                }
+            }
+        }
+
+    }
+
+
+</script>
+
+</html>
